@@ -1,0 +1,13 @@
+{% load static %}
+{% comment %} <script src="{% static 'bootstrap/js/jquery.min.js' %}"></script> {% endcomment %}
+<script src="{% static 'bootstrap/js/bootstrap.bundle.js' %}"></script>
+<script src="{% static 'js/offcanvas.js' %}"></script>
+
+
+
+<script>
+    const url = document.querySelector('a[href="{{request.path}}"]');
+    if (url){
+        url.classList.add('active');
+    }
+</script>

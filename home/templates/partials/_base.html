@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ebooks Solutions | {% block title %}{% endblock title %}</title>
+    {% include 'partials/_stylesheets.html' %}
+    {% block stylesheets %}
+    {% endblock stylesheets %}
+</head>
+<body>
+    {% include 'partials/_navbar.html' %}
+
+    <main class="container">
+
+        {% block body %}    
+
+        
+        {% endblock body %}
+
+    </main>
+    
+    {% include 'partials/_scripts.html' %}
+    {% block scripts %}
+    {% endblock scripts %}
+</body>
+</html>

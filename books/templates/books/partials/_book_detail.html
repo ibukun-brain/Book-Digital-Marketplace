@@ -1,0 +1,22 @@
+<div class="card">
+    <div class="card-header">
+        {{chapter.title}}
+    </div>
+    <img src="{{book.cover_image_url}}" class="card-img-top rounded-0" alt="...">
+    <div class="card-body">
+      <p class="card-text">Published: {{book.created_at|date:'jS M, Y.'}}</p>
+    </div>
+    {% if book_status != "owned" %}
+        <div class="d-grid card-footer">
+            {% if book_status == 'in_cart' %}
+                <a href="{% url 'shopping_cart:remove-from-cart' book.slug %}" class="btn btn-danger btn-block">
+                    Remove from cart
+                </a>
+            {% else %}
+                <a href="{% url 'shopping_cart:add-to-cart' book.slug %}" class="btn btn-warning btn-block">
+                Add to cart
+                </a>
+            {% endif %}
+        </div>
+    {% endif %}
+</div>

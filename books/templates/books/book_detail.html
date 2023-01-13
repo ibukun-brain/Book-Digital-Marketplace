@@ -1,0 +1,36 @@
+{% extends 'partials/_base.html' %}
+{% block title %}{{book.title}}{% endblock title %}
+{% block body %}
+{% block breadcrumb %}
+<div class="bg-light p-2 mt-2 shadow-sm">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'books:book-list' %}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{book.title}}</li>
+        </ol>
+    </nav>
+</div>
+{% endblock breadcrumb %}  
+
+<div class="row my-5">
+    <div class="col-md-5">
+        {% include 'books/partials/_book_detail.html' with book=book %}
+    </div>
+
+    <div class="col-md-7">
+        <div class="card">
+            <div class="card-header">
+              Chapters
+            </div>
+            <ul class="list-group list-group-flush">
+              {% for chapter in book.chapter_set.all %}
+              <li class="list-group-item"><a href="{{chapter.get_absolute_url}}">{{chapter.chapter_number}}. {{chapter.title}}</a></li>
+          {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+{% endblock body %} 
+
