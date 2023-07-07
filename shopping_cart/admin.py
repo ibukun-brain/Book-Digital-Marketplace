@@ -24,7 +24,7 @@ class OrderItemAdmin(admin.ModelAdmin):
 
 @admin.register(Payment)
 class PaymentAdmin(admin.ModelAdmin):
-    list_display = ['order', 'total_amount', 'transaction_id', 'transaction_ref']
+    list_display = ['order', 'total_amount', 'transaction_id']
     list_select_related = ['order']
     list_filter = ['created_at', 'updated_at']
     autocomplete_fields = ['order']

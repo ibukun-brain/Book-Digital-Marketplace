@@ -65,28 +65,17 @@
 <script>
 function makePayment() {
     FlutterwaveCheckout({
-      public_key: "FLWPUBK_TEST-85ea9de6d4d8d3926065bae3a5b3f5a5-X",
+      public_key: "{{public_key}}",
       tx_ref: "{{ref_code}}",
       amount: "{{order.get_total}}",
-      currency: "USD",
+      currency: "NGN",
       payment_options: "card",
-      redirect_url: "http://127.0.0.1:8000/cart/checkout/",
-      /** callback: function(payment) {
-        // Send AJAX verification request to backend
-        verifyTransactionOnBackend(payment.id);
-      },
+      redirect_url: "https://c1b1-105-112-47-177.ngrok-free.app/cart/checkout/",
       onclose: function(incomplete) {
-        if (incomplete || window.verified === false) {
-          document.querySelector("#payment-failed").style.display = 'block';
-        } else {
-          document.querySelector("form").style.display = 'none';
-          if (window.verified == true) {
-            document.querySelector("#payment-success").style.display = 'block';
-          } else {
-            document.querySelector("#payment-pending").style.display = 'block';
-          }
+        if (incomplete === true) {
+          message: "Payment cancelled"
         }
-      } **/,
+      },
       meta: {
         consumer_id: 23,
         consumer_mac: "92a3-912ba-1192a",
@@ -101,6 +90,7 @@ function makePayment() {
         description: "Your number one book solutions",
         logo: "https://www.logolynx.com/images/logolynx/22/2239ca38f5505fbfce7e55bbc0604386.jpeg",
       },
+     payload_hash: "{{payload_hash}}"
     });
   }
 </script>

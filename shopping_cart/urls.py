@@ -23,5 +23,10 @@ urlpatterns = [
         'checkout/',
         shopping_cart_views.CheckOutView.as_view(),
         name='checkout'
+    ),
+    path(
+        'webhook/',
+        shopping_cart_views.webhook,
+        name='webhook'
     )
 ]

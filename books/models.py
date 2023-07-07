@@ -22,7 +22,7 @@ class UserLibrary(TimeBasedModel):
     def book_list(self):
         return self.books.all()
 
-    class Meta:
+    class Meta(auto_prefetch.Model.Meta):
         verbose_name = "User Library"
         verbose_name_plural = "User Library"
 
